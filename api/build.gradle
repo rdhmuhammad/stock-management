@@ -1,0 +1,10 @@
+// This module inherits plugins and common dependencies from root build.gradle
+plugins{
+    id 'application'
+//    id 'security'
+}
+
+dependencies {
+    // Add module-specific dependencies here if needed
+    implementation project(':application')
+}

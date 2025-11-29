@@ -1,0 +1,9 @@
+// This module inherits plugins and common dependencies from root build.gradle
+
+dependencies {
+    // Depend on api module to implement its interfaces
+//    implementation project(':api')
+    implementation 'org.apache.poi:poi:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    implementation 'com.github.mpkorstanje:simmetrics-core:4.1.1'
+}
