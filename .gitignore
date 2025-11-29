@@ -1,2 +1,6 @@
 .idea
 .claude
+web/frontend/node_modules
+**/.gradle
+**/build
+web/frontend/dist
