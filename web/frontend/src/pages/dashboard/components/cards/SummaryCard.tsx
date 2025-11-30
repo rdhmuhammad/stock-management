@@ -1,4 +1,3 @@
-import {LuTrendingUp} from "react-icons/lu";
 import {Card} from "@/components/ui/card.tsx";
 import React from "react";
 
@@ -10,7 +9,7 @@ interface ISummaryCard {
     colorLogo: string
 }
 
-const SummaryCard: React.FC<ISumarryCard> = ({title, change, total, logo: Logo, colorLogo}: ISummaryCard) => {
+const SummaryCard: React.FC<ISummaryCard> = ({title, change, total, logo: Logo, colorLogo}: ISummaryCard) => {
 
     const getLogoClass = (color: string): string =>
         `row-span-2 rounded-[5px] shadow-md flex justify-center items-center m-[5px] ${color}`

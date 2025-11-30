@@ -16,9 +16,13 @@ import {CustomBreadcrumb} from "@/components/common/CustomBreadcrumb";
 import BasePagination from "@/components/common/BasePagination.tsx";
 import IndicatorTable from "@/pages/indicator/components/IndicatorTable.tsx";
 import type {IndicatorDetailResponse} from "@/pages/indicator/types/IndicatorDetailResponse.ts";
+import { useNavigate } from "react-router-dom";
+import {ROUTES} from "@/config/constant/ROUTES.ts";
 
 
 const IndicatorPage: React.FC = () => {
+    const navigate = useNavigate();
+
     const [filter, setFilter] = useState<IIndicatorPagination>({
         page: 1,
         size: 10
@@ -69,9 +73,8 @@ const IndicatorPage: React.FC = () => {
     const [openEndDate, setOpenEndDate] = useState<boolean>(false)
 
     const BREADCRUMBITEM = [
-        {label: "Home", href: "/dashboard", icon: <Home size={20}/>},
-        {label: "Indicator", href: "/indicator"},
-        {label: "Detail"},
+        {label: "Home", href: ROUTES.DASHBOARD, icon: <Home size={20}/>},
+        {label: "Indicator", href: ROUTES.INDICATOR.ROOT}
     ]
 
     const transformedData = useMemo(() => {
@@ -80,6 +83,8 @@ const IndicatorPage: React.FC = () => {
         ]
         return data
     }, [])
+
+
 
 
     return (
@@ -100,10 +105,9 @@ const IndicatorPage: React.FC = () => {
                         className={cn(
                             "h-[41px] cursor-pointer mt-3.5 bg-primary hover:bg-primary-bold text-white hover:text-white text-[14px] font-normal"
                         )}
-                        // onClick={() => {
-                        //     setSelectedFloor(null);
-                        //     setIsDialogOpen(true);
-                        // }}
+                        onClick={() => {
+                            navigate(ROUTES.INDICATOR.ADD_NEW)
+                        }}
                     >
                         <IoMdAdd className="me-1"/>
 

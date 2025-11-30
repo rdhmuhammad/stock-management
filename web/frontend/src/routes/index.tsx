@@ -5,6 +5,7 @@ import {ROUTES} from "@/config/constant/ROUTES.ts";
 import Index from "@/pages/dashboard";
 import WatchlistPage from "@/pages/watchlist/WatchlistPage.tsx";
 import IndicatorPage from "@/pages/indicator/IndicatorPage.tsx";
+import AddIndicatorPage from "@/pages/indicator/AddIndicatorPage.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -24,12 +25,16 @@ export const router = createBrowserRouter([
         element: <Index/>
       },
       {
-        path: ROUTES.WATCHLIST,
+        path: ROUTES.WATCHLIST.ROOT,
         element: <WatchlistPage/>
       },
       {
-        path: ROUTES.INDICATOR,
+        path: ROUTES.INDICATOR.ROOT,
         element: <IndicatorPage/>
+      },
+      {
+        path: ROUTES.INDICATOR.ADD_NEW,
+        element: <AddIndicatorPage/>
       },
     ]
   },

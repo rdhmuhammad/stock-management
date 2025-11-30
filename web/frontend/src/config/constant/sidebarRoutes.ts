@@ -1,5 +1,6 @@
 import React from "react";
 import {LuChartArea, LuLayoutDashboard, LuSquareFunction} from "react-icons/lu";
+import {ROUTES} from "@/config/constant/ROUTES.ts";
 
 export interface MenuItem{
     label: string;
@@ -16,12 +17,12 @@ export const SIDEBAR_ROUTES = () =>{
         },
         {
             label: "Indicator",
-            path: "/indicator",
+            path: ROUTES.INDICATOR.ROOT,
             icon: LuSquareFunction
         },
         {
             label: "Watchlist",
-            path: "/watchlist",
+            path: ROUTES.WATCHLIST.ROOT,
             icon: LuChartArea
         },
     ]

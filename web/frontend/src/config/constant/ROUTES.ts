@@ -1,5 +1,10 @@
 export const ROUTES = {
     DASHBOARD: "/dashboard",
-    WATCHLIST: "/watchlist",
-    INDICATOR: "/indicator"
+    WATCHLIST: {
+        ROOT: "/watchlist"
+    },
+    INDICATOR: {
+        ROOT: "/indicator",
+        ADD_NEW: "/add"
+    }
 }
