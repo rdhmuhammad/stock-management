@@ -2,6 +2,7 @@ package com.github.api.base;
 
 import com.github.api.common.constant.AppConstants;
 import com.github.api.common.util.BeanCopier;
+import com.github.application.util.BeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.NoRepositoryBean;
@@ -20,7 +21,7 @@ public class BaseResController {
     protected Validator validator;
 
     @Autowired
-    protected BeanCopier beanCopier;
+    protected BeanCopy beanCopier;
 
     public BaseResController() {
     }

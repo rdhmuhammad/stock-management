@@ -10,9 +10,28 @@ import org.springframework.data.domain.Pageable;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 public class BaseService {
+
+
+    protected <T extends BaseEntity> T created(T entity) {
+        entity.setCreatedDate(new Date());
+        entity.setModifiedDate(new Date());
+        entity.setCreatedBy("system");
+        entity.setModifiedBy("system");
+        return entity;
+    }
+
+    protected <T extends BaseEntity> Collection<T> created(Collection<T> entity) {
+        entity.forEach(this::created);
+        return entity;
+    }
+
+
 
     private String SUCCESS;
 

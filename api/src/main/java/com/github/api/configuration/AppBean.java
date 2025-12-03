@@ -19,12 +19,6 @@ import java.util.Properties;
 @Configuration
 public class AppBean {
 
-    @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
-    };
-
-
     @Value("${spring.datasource.url}")
     private String url;
 
@@ -49,16 +43,6 @@ public class AppBean {
     }
 
 
-    // Supporting Media Type Multipart
-    @Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setSupportedMediaTypes(Arrays.asList(
-                MediaType.APPLICATION_OCTET_STREAM,
-                MediaType.MULTIPART_FORM_DATA,
-                MediaType.APPLICATION_JSON));
-        return converter;
-    }
 
 //    @Bean
 //    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
@@ -76,6 +60,18 @@ public class AppBean {
 //
 //        return emFactory;
 //    }
+
+    // Supporting Media Type Multipart
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        converter.setSupportedMediaTypes(Arrays.asList(
+                MediaType.APPLICATION_OCTET_STREAM,
+                MediaType.MULTIPART_FORM_DATA,
+                MediaType.APPLICATION_JSON));
+        return converter;
+    }
+
 
     @Bean
     public Validator validator(){
