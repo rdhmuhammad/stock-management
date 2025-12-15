@@ -17,6 +17,7 @@ const BasePagination: React.FC<BasePaginationProps> = ({
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const startItem = (currentPage - 1) * itemsPerPage + 1;
     const endItem = Math.min(currentPage * itemsPerPage, totalItems);
+    console.log(totalItems, itemsPerPage)
 
     const getPageNumbers = () => {
         const pages = [];

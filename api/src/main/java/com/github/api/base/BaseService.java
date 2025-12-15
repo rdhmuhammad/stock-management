@@ -1,6 +1,7 @@
 package com.github.api.base;
 
 
+import com.github.api.base.converter.ResponseConverter;
 import com.github.api.common.exception.AccessNotAllowException;
 import com.github.api.common.exception.InvalidDataException;
 import com.github.api.common.exception.NotFoundException;
@@ -12,7 +13,6 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 public class BaseService {

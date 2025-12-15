@@ -1,8 +1,9 @@
-package com.github.api.base;
+package com.github.api.base.converter;
+
 
 public abstract class ResponseConverter<Src, Desc> {
     public ResponseConverter() {
     }
 
-    protected abstract Desc convert(Src src);
+    public abstract Desc convert(Src src);
 }

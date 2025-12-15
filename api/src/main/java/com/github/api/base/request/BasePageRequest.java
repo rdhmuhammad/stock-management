@@ -1,4 +1,4 @@
-package com.github.api.base;
+package com.github.api.base.request;
 
 import lombok.Data;
 import org.springframework.data.domain.PageRequest;

@@ -1,7 +1,7 @@
 export interface ICategoryResponse {
     code?: number;
     message?: string;
-    result?: ICategoryData[];
+    data?: ICategoryData[];
 }
 
 export interface ICategoryData {

@@ -33,4 +33,6 @@ public class Indicator extends BaseEntity {
 
     @OneToMany(mappedBy = "indicatorId", fetch = FetchType.LAZY)
     private List<IndicatorAspect> aspects;
+
+    private Boolean isActive;
 }

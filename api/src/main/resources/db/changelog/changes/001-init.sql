@@ -61,3 +61,6 @@ create table indicator_categories
     modified_date TIMESTAMP NULL,
     is_deleted    BOOLEAN               NOT NULL DEFAULT FALSE
 );
+
+--changeset ridho:alter-table-indicators-add-col-active
+alter table indicators add column is_active boolean;

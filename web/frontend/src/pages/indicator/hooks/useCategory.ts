@@ -2,6 +2,9 @@ import { useQuery } from "@tanstack/react-query"
 import { useEffect, useMemo, useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
 import type { ICategoryResponse } from "../types/CategoryResponse"
+import {IndicatorService} from "@/services/Indicator.ts";
+import type {IBaseResponse} from "@/config/types/BaseResponse.ts";
+import type {DropdownCategoryResponse} from "@/pages/indicator/types/DropdownCategoryResponse.tsx";
 
 export const useCategory = () => {
   const [keyword, setKeyword] = useState<string>()
@@ -13,24 +16,24 @@ export const useCategory = () => {
 
   const [category, setCategory] = useState<{ label: string; value: string, color?: string } | undefined>();
 
-  const { data, isLoading, refetch } = useQuery<ICategoryResponse>({
+  const { data, isLoading, refetch } = useQuery<IBaseResponse<DropdownCategoryResponse>>({
     queryKey,
-    // queryFn: () => MovementTracking.getAllCategory(keyword),
+    queryFn: ()=> IndicatorService.getCategoryDropdown(),
     refetchInterval: false,
     refetchOnWindowFocus: false,
     // gcTime: 0
   })
 
   // Build floor options (pure function, no setState here)
-  const categoryData = useMemo(() => {
-    const values = data?.result ?? [];
+  const  categoryData = useMemo(() => {
+    const values = data?.data ?? [];
     if (values.length === 0) return []; // return empty if API gives nothing
 
     return [
       { label: "All Category", value: "-" },
       ...values.map((e) => ({
-        value: e.code ?? "",
-        label: e.name ?? "",
+        value: e.value ?? "",
+        label: e.label ?? "",
         color: e.color ?? "",
       })),
     ];
@@ -38,7 +41,7 @@ export const useCategory = () => {
 
   // Sync floor state with available data
   useEffect(() => {
-    if (categoryData.length === 0) {
+    if (categoryData?.length === 0) {
       setCategory(undefined);
     } else if (!category) {
       // set default only if none is selected
